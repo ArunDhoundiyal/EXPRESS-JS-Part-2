@@ -31,3 +31,6 @@ app.get("/books/", async (request, response) => {
   const bookArray = await db.all(getBooksQuery);
   response.send(bookArray);
 });
+
+
+"GET http://localhost:3000/books/"
