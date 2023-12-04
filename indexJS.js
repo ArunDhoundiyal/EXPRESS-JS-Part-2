@@ -20,9 +20,14 @@ const initializeDBAndServer = async () => {
   }
 };
 initializeDBAndServer();
-app.get("/books/", async(request, response) => {
-    const getBookQuery = SELECT * FROM book ORDER BY book_id;
-    const bookArray = await db.all(getBookQuery);
-    response.send(bookArray);
-
+app.get("/books/", async (request, response) => {
+  const getBooksQuery = `
+    SELECT
+      *
+    FROM
+      book
+    ORDER BY
+      book_id;`;
+  const bookArray = await db.all(getBooksQuery);
+  response.send(bookArray);
 });
